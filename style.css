@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000000;
+}
+
+.nav-list .logo-img {
+  width: 17%;
+  font-family: "Chic";
+  font-size: 2rem;
+  padding-right: 20px;
+  font-weight: 900;
+  color: #ffffff;
+}
+.nav-list .container-nav {
+  margin: auto;
+  text-align: center;
+}
+
+#container-todo {
+  width: 60%;
+  margin: 3% auto;
+  padding: 1% 0%;
+  background-color: black;
+  text-align: center;
+  border-radius: 2%;
+}
+#container-todo #add-task {
+  width: 74%;
+  height: 3.8rem;
+  background-color: #282828;
+  color: white;
+  padding: 0% 2%;
+}
+#container-todo #add-task:focus {
+  outline: none;
+}
+#container-todo #add-btn {
+  width: 6%;
+  background-color: #190061;
+  height: 3.8rem;
+  color: white;
+}
+#container-todo #add-btn:hover {
+  background-color: white;
+  color: #190061;
+}
+#container-todo .mode-btns {
+  padding: 0% 10%;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2%;
+}
+#container-todo .mode-btns .event-btn {
+  border: 0px;
+  padding: 5%;
+  background-color: #190061;
+  color: white;
+  font-size: 16px;
+  font-family: "chic";
+  font-weight: 600;
+  margin-top: 10px;
+}
+#container-todo .mode-btns .event-btn:hover {
+  background-color: white;
+  color: #190061;
+}
+
+.edit {
+  padding: 0% 10%;
+  width: 50%;
+}
+
+@media (min-width: 500px) {
+  .mode-btns {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+@media (min-width: 768px) {
+  .mode-btns {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+}/*# sourceMappingURL=style.css.map */
