@@ -89,14 +89,6 @@ body {
   cursor: pointer;
 }
 
-.lineClass {
-  text-decoration: line-through;
-}
-
-.lineNone {
-  text-decoration: none;
-}
-
 @media (min-width: 500px) {
   .mode-btns {
     grid-template-columns: repeat(2, 1fr) !important;

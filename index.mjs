@@ -1,12 +1,12 @@
 import list from "./list.json" assert { type: "json" };
 
-const clearbtn = document.getElementById("clear-btn");
+const clearBtn = document.getElementById("clear-btn");
 const taskAddbtn = document.getElementById("add-btn");
 const addtaskBox = document.getElementById("add-task");
 const containerTodo = document.getElementById("container-main");
-const completebtn = document.getElementById("completed-btn");
-const addbtn = document.getElementById("all-btn");
-const activebtn = document.getElementById("active-btn");
+const completeBtn = document.getElementById("completed-btn");
+const addBtn = document.getElementById("all-btn");
+const activeBtn = document.getElementById("active-btn");
 
 function setList(key, data) {
   if (typeof localStorage !== "undefined") {
@@ -79,7 +79,7 @@ function createTaskBox(time) {
   if (taskCheck === "") {
     addtaskBox.value = "";
     return;
-  } else if (check == 1 && listItems.length !== 0) {
+  } else if (check === 1 && listItems.length !== 0) {
     addtaskBox.value = "";
     alert("Duplicate Found");
     return;
@@ -209,7 +209,7 @@ window.addEventListener("load", (event) => {
   });
 });
 
-activebtn.addEventListener("click", () => {
+activeBtn.addEventListener("click", () => {
   containerTodo.innerHTML = "";
   listItems.forEach((element) => {
     if (element["done"] === false) {
@@ -218,14 +218,14 @@ activebtn.addEventListener("click", () => {
   });
 });
 
-addbtn.addEventListener("click", () => {
+addBtn.addEventListener("click", () => {
   containerTodo.innerHTML = "";
   listItems.forEach((element) => {
     loadElements(element);
   });
 });
 
-completebtn.addEventListener("click", () => {
+completeBtn.addEventListener("click", () => {
   containerTodo.innerHTML = "";
   listItems.forEach((element) => {
     if (element["done"] === true) {
@@ -234,7 +234,7 @@ completebtn.addEventListener("click", () => {
   });
 });
 
-clearbtn.addEventListener("click", (event) => {
+clearBtn.addEventListener("click", (event) => {
   containerTodo.innerHTML = "";
 
   listItems.forEach((element) => {
