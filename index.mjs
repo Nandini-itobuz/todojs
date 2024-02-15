@@ -8,7 +8,6 @@ const completebtn = document.getElementById("completed-btn");
 const addbtn = document.getElementById("all-btn");
 const activebtn = document.getElementById("active-btn");
 
-
 function setList(key, data) {
   if (typeof localStorage !== "undefined") {
     if (!localStorage.getItem(key)) {
@@ -38,7 +37,6 @@ function createTaskBox(time) {
                                 background-color: #282828;
                                 margin: 10px auto;
                                 display:flex;
-                                text-align:center;
                                 justify-content:space-between;
                                 font-family:'Bradley Hand';
                                 font-size:1.2rem;
@@ -54,26 +52,31 @@ function createTaskBox(time) {
                           margin-right:5%
                           `;
   delTask.setAttribute("data-del-card-id", time);
+  delTask.setAttribute("class", "cursour");
 
   let checkTask = document.createElement("input");
   checkTask.setAttribute("type", "checkbox");
+
   checkTask.style.cssText = `
                           width:3%;
                           }`;
 
   checkTask.setAttribute("data-check-card-id", time);
+  checkTask.setAttribute("class", "cursour");
 
   let taskText = document.createElement("div");
   taskText.setAttribute("data-text-card-id", time);
-  taskText.style.cssText =`
+  taskText.style.cssText = `
                             overflow-x:scroll;
                             white-space:nowrap;
                             `;
   taskText.style.width = "50%";
 
   let check = checkvalue();
+  let taskCheck = addtaskBox.value;
+  taskCheck = taskCheck.trim();
 
-  if (addtaskBox.value === "") {
+  if (taskCheck === "") {
     addtaskBox.value = "";
     return;
   } else if (check == 1 && listItems.length !== 0) {
@@ -112,23 +115,31 @@ function loadElements(ele) {
                           margin-right:5%
                           `;
   delTask.setAttribute("data-del-card-id", ele["id"]);
+  delTask.setAttribute("class", "cursour");
 
   let checkTask = document.createElement("input");
   checkTask.setAttribute("type", "checkbox");
+  if (ele.done) {
+    checkTask.setAttribute("checked", "true");
+  }
   checkTask.style.cssText = `
                           width:3%;
                           }`;
   checkTask.setAttribute("data-check-card-id", ele["id"]);
+  checkTask.setAttribute("class", "cursour");
 
   let taskText = document.createElement("div");
   taskText.setAttribute("data-text-card-id", ele["id"]);
   taskText.textContent = ele["task"];
-  taskText.style.cssText =`
+  taskText.style.cssText = `
                             overflow-x:scroll;
                             white-space:nowrap;
                             `;
-  taskText.style.width = '50%';
-  taskBox.style.overflow = 'none';
+  taskText.style.width = "50%";
+  taskBox.style.overflow = "none";
+  if (ele.done) {
+    taskText.style.textDecoration = "line-through";
+  }
 
   containerTodo.appendChild(taskBox);
   taskBox.append(checkTask, taskText, delTask);
@@ -225,7 +236,7 @@ completebtn.addEventListener("click", () => {
 
 clearbtn.addEventListener("click", (event) => {
   containerTodo.innerHTML = "";
-  
+
   listItems.forEach((element) => {
     if (element["done"] === true) {
       listItems = listItems.filter(
@@ -235,7 +246,6 @@ clearbtn.addEventListener("click", (event) => {
     }
   });
   listItems.forEach((element) => {
-      loadElements(element);
+    loadElements(element);
   });
-
 });
