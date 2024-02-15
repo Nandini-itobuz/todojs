@@ -8,7 +8,6 @@ const completebtn = document.getElementById("completed-btn");
 const addbtn = document.getElementById("all-btn");
 const activebtn = document.getElementById("active-btn");
 
-document.body.style.overflow = 'hidden';
 
 function setList(key, data) {
   if (typeof localStorage !== "undefined") {
