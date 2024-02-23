@@ -33,44 +33,25 @@ function checkvalue() {
 
 function createTaskBox(time) {
   let taskBox = document.createElement("div");
-  taskBox.style.cssText = `width:80%;
-                                background-color: #282828;
-                                margin: 10px auto;
-                                display:flex;
-                                justify-content:space-between;
-                                font-family:'Bradley Hand';
-                                font-size:1.2rem;
-                                padding:2% 5%;
-                                overflow-x:hidden`;
+  taskBox.classList.add('createBox')
   taskBox.setAttribute("id", time);
 
   let delTask = document.createElement("img");
   delTask.setAttribute("src", "images/trash-solid.svg");
-
-  delTask.style.cssText = `
-                          width:3%;
-                          margin-right:5%
-                          `;
   delTask.setAttribute("data-del-card-id", time);
   delTask.setAttribute("class", "cursour");
+  delTask.classList.add('delTaskImg')
 
   let checkTask = document.createElement("input");
   checkTask.setAttribute("type", "checkbox");
-
-  checkTask.style.cssText = `
-                          width:3%;
-                          }`;
+  checkTask.style.width = "3%";
 
   checkTask.setAttribute("data-check-card-id", time);
   checkTask.setAttribute("class", "cursour");
 
   let taskText = document.createElement("div");
   taskText.setAttribute("data-text-card-id", time);
-  taskText.style.cssText = `
-                            overflow-x:scroll;
-                            white-space:nowrap;
-                            `;
-  taskText.style.width = "50%";
+  taskText.classList.add('taskTextBox')
 
   let check = checkvalue();
   let taskCheck = addtaskBox.value;
@@ -96,45 +77,28 @@ function createTaskBox(time) {
 
 function loadElements(ele) {
   let taskBox = document.createElement("div");
-  taskBox.style.cssText = `width:80%;
-                                background-color: #282828;
-                                margin: 10px auto;
-                                display:flex;
-                                justify-content:space-between;
-                                font-family:'Bradley Hand';
-                                font-size:1.2rem;
-                                padding:2% 5%;
-                                overflow-x:hidden`;
+  taskBox.classList.add('createBox')
   taskBox.setAttribute("id", ele["id"]);
 
-  let delTask = document.createElement("img");
+    let delTask = document.createElement("img");
   delTask.setAttribute("src", "images/trash-solid.svg");
-
-  delTask.style.cssText = `
-                          width:3%;
-                          margin-right:5%
-                          `;
   delTask.setAttribute("data-del-card-id", ele["id"]);
   delTask.setAttribute("class", "cursour");
+  delTask.classList.add('delTaskImg')
 
   let checkTask = document.createElement("input");
   checkTask.setAttribute("type", "checkbox");
   if (ele.done) {
     checkTask.setAttribute("checked", "true");
   }
-  checkTask.style.cssText = `
-                          width:3%;
-                          }`;
+  checkTask.style.width = "3%";
   checkTask.setAttribute("data-check-card-id", ele["id"]);
   checkTask.setAttribute("class", "cursour");
 
   let taskText = document.createElement("div");
   taskText.setAttribute("data-text-card-id", ele["id"]);
   taskText.textContent = ele["task"];
-  taskText.style.cssText = `
-                            overflow-x:scroll;
-                            white-space:nowrap;
-                            `;
+  taskText.classList.add("taskTextBox")
   taskText.style.width = "50%";
   taskBox.style.overflow = "none";
   if (ele.done) {
@@ -169,12 +133,7 @@ function checkItems(event) {
   }
 }
 
-containerTodo.style.cssText = `width:90%;
-                                padding:3%;
-                                height:auto;
-                                background-color:#000000;
-                                margin:auto;
-                                color:white`;
+containerTodo.classList.add('todoContainer')
 
 setList("toDoItems", list);
 let listItems = JSON.parse(localStorage.getItem("toDoItems"));

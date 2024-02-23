@@ -30,7 +30,7 @@ body {
 }
 
 #container-todo {
-  width: 60%;
+  width: 90%;
   margin: 3% auto;
   padding: 1% 0%;
   background-color: black;
@@ -38,7 +38,7 @@ body {
   border-radius: 2%;
 }
 #container-todo #add-task {
-  width: 74%;
+  width: 70%;
   height: 3.8rem;
   background-color: #282828;
   color: white;
@@ -48,7 +48,7 @@ body {
   outline: none;
 }
 #container-todo #add-btn {
-  width: 6%;
+  width: 10%;
   background-color: #190061;
   height: 3.8rem;
   color: white;
@@ -87,6 +87,38 @@ body {
 
 .cursour:hover {
   cursor: pointer;
+}
+
+.createBox {
+  width: 80%;
+  background-color: #282828;
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Bradley Hand";
+  font-size: 1.2rem;
+  padding: 2% 5%;
+  overflow-x: hidden;
+}
+
+.delTaskImg {
+  width: 3%;
+  margin-right: 5%;
+}
+
+.taskTextBox {
+  overflow-x: scroll;
+  white-space: nowrap;
+  width: 50%;
+}
+
+.todoContainer {
+  width: 90%;
+  padding: 3%;
+  height: auto;
+  background-color: #000000;
+  margin: auto;
+  color: white;
 }
 
 @media (min-width: 500px) {
